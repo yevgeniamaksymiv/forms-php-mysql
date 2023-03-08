@@ -35,10 +35,10 @@ session_start();
                         }
                         ?>
 ">
-                    <div class="invalid-feedback d-block"><?php
-                        if (isset($_SESSION['lf-email-error'])) {
-                            echo $_SESSION['lf-email-error'];
-                        }?>
+                    <div class="invalid-feedback d-block">
+                        <?php
+                        echo $_SESSION['lf-email-error'] ?? '';
+                        ?>
                     </div>
                 </div>
             </div>
@@ -62,9 +62,7 @@ session_start();
                     />
                     <div class="invalid-feedback d-block">
                         <?php
-                        if (isset($_SESSION['lf-password-error'])) {
-                            echo $_SESSION['lf-password-error'];
-                        }
+                        echo $_SESSION['lf-password-error'] ?? '';
                         ?>
                     </div>
                 </div>
@@ -74,9 +72,14 @@ session_start();
                     <button type="submit" class="btn btn-primary">Login</button>
                 </div>
             </div>
-            <div class="invalid-feedback d-block"><?php
+            <div class="invalid-feedback d-block">
+                <?php
                 if (isset($_SESSION['lf-error'])) {
-                    echo $_SESSION['lf-error'];
+                    echo "<h5>{$_SESSION['lf-error']}</h5>", PHP_EOL;
+                    echo "
+                    <div class='mt-3'>
+                        <a class='btn btn-success' href='signup-form.php'>Sign up</a>
+                    </div>";
                 }
                 ?>
             </div>

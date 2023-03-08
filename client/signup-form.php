@@ -39,9 +39,8 @@ session_start();
                         ?>
 ">
                     <div class="invalid-feedback d-block"><?php
-                        if (isset($_SESSION['email-error'])) {
-                            echo $_SESSION['email-error'];
-                        }?>
+                        echo $_SESSION['email-error'] ?? '';
+                        ?>
                     </div>
                 </div>
             </div>
@@ -64,9 +63,7 @@ session_start();
                     />
                     <div class="invalid-feedback d-block">
                         <?php
-                        if (isset($_SESSION['login-error'])) {
-                            echo $_SESSION['login-error'];
-                        }
+                        echo $_SESSION['login-error'] ?? '';
                         ?>
                     </div>
                 </div>
@@ -90,9 +87,7 @@ session_start();
                         />
                     <div class="invalid-feedback d-block">
                         <?php
-                        if (isset($_SESSION['city-error'])) {
-                            echo $_SESSION['city-error'];
-                        }
+                        echo $_SESSION['city-error'] ?? '';
                         ?>
                     </div>
                 </div>
@@ -108,9 +103,7 @@ session_start();
                     </select>
                     <div class="invalid-feedback d-block">
                         <?php
-                        if (isset($_SESSION['gender-error'])) {
-                            echo $_SESSION['gender-error'];
-                        }
+                        echo $_SESSION['gender-error'] ?? '';
                         ?>
                     </div>
                 </div>
@@ -137,9 +130,7 @@ session_start();
 ">
                     <div class="invalid-feedback d-block">
                         <?php
-                        if (isset($_SESSION['phone-error'])) {
-                            echo $_SESSION['phone-error'];
-                        }
+                        echo $_SESSION['phone-error'] ?? '';
                         ?>
                     </div>
                 </div>
@@ -164,9 +155,7 @@ session_start();
                     >
                     <div class="invalid-feedback d-block">
                         <?php
-                        if (isset($_SESSION['password-error'])) {
-                            echo $_SESSION['password-error'];
-                        }
+                        echo $_SESSION['password-error'] ?? '';
                         ?>
                     </div>
                 </div>
@@ -191,9 +180,7 @@ session_start();
                     >
                     <div class="invalid-feedback d-block">
                         <?php
-                        if (isset($_SESSION['confirm-error'])) {
-                            echo $_SESSION['confirm-error'];
-                        }
+                        echo $_SESSION['confirm-error'] ?? '';
                         ?>
                     </div>
                 </div>

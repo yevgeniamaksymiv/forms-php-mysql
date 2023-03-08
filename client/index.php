@@ -26,6 +26,12 @@
                    <li class="nav-item">
                        <a class="nav-link" href="posts-form.php">ADD POST</a>
                    </li>
+                   <li>
+                       <a class="nav-link text-primary" href="all-posts.php">ALL POSTS</a>
+                   </li>
+                   <li>
+                       <a class="nav-link text-danger" href="logout.php">LOG OUT</a>
+                   </li>
                </ul>
            </div>
        </nav>

@@ -13,6 +13,14 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['user_id'])) {
+    $host = $_SERVER['HTTP_HOST'];
+    $uri = 'forms-php-mysql';
+    $extra = 'client/login-form.php';
+    header("Location: http://$host/$uri/$extra");
+    exit;
+}
+
 ?>
 
 <br>
@@ -37,16 +45,10 @@ if (isset($_SESSION['title'])) {
 }
 ?>
 ">
-                    <div class="invalid-feedback" id="title-err"><?php
-if (isset($_SESSION['title-error'])) {
-    echo '<style>
-    #title-err {
-      display: block;
-    }
-    </style>';
-    echo $_SESSION['title-error'];
-}?>
-</div>
+                    <div class="invalid-feedback d-block"><?php
+                        echo $_SESSION['title-error'] ?? '';
+                        ?>
+                    </div>
                 </div>
             </div>
 
@@ -67,17 +69,10 @@ if (isset($_SESSION['annotation'])) {
 }
 ?>
 </textarea>
-                    <div class="invalid-feedback" id="annotation-err">
+                    <div class="invalid-feedback d-block">
                       <?php
-if (isset($_SESSION['annotation-error'])) {
-    echo '<style>
-    #annotation-err {
-      display: block;
-    }
-    </style>';
-    echo $_SESSION['annotation-error'];
-}
-?>
+                      echo $_SESSION['annotation-error'] ?? '';
+                      ?>
                     </div>
                 </div>
             </div>
@@ -100,17 +95,10 @@ if (isset($_SESSION['content'])) {
 }
 ?>
                           </textarea>
-                    <div class="invalid-feedback" id="content-err">
+                    <div class="invalid-feedback d-block">
                       <?php
-if (isset($_SESSION['content-error'])) {
-    echo '<style>
-    #content-err {
-      display: block;
-    }
-    </style>';
-    echo $_SESSION['content-error'];
-}
-?>
+                      echo $_SESSION['content-error'] ?? '';
+                      ?>
                     </div>
                 </div>
             </div>
@@ -132,17 +120,10 @@ if (isset($_SESSION['email'])) {
 }
 ?>
 ">
-                    <div class="invalid-feedback" id="email-err">
+                    <div class="invalid-feedback d-block">
                       <?php
-if (isset($_SESSION['email-error'])) {
-    echo '<style>
-    #email-err {
-      display: block;
-    }
-    </style>';
-    echo $_SESSION['email-error'];
-}
-?>
+                      echo $_SESSION['email-error'] ?? '';
+                      ?>
                     </div>
                 </div>
             </div>
@@ -165,18 +146,11 @@ if (isset($_SESSION['views'])) {
 }
 ?>
 ">
-                    <div class="invalid-feedback" id="views-err">
+                    <div class="invalid-feedback d-block">
                       <?php
-if (isset($_SESSION['views-error'])) {
-    echo '<style>
-    #views-err {
-      display: block;
-    }
-    </style>';
-    echo $_SESSION['views-error'];
-}
-?>
-</div>
+                      echo $_SESSION['views-error'] ?? '';
+                      ?>
+                    </div>
                 </div>
             </div>
 
@@ -198,17 +172,10 @@ if (isset($_SESSION['date'])) {
 }
 ?>
 ">
-                    <div class="invalid-feedback" id="date-err">
+                    <div class="invalid-feedback d-block">
                       <?php
-if (isset($_SESSION['date-error'])) {
-    echo '<style>
-    #date-err {
-      display: block;
-    }
-    </style>';
-    echo $_SESSION['date-error'];
-}
-?>
+                      echo $_SESSION['date-error'] ?? '';
+                      ?>
                     </div>
                 </div>
             </div>
@@ -241,17 +208,10 @@ if (isset($_SESSION['date-error'])) {
                             Нет
                         </label>
                     </div>
-                    <div class="invalid-feedback" id="check-err">
+                    <div class="invalid-feedback d-block">
                       <?php
-if (isset($_SESSION['publish-error'])) {
-    echo '<style>
-    #check-err {
-      display: block;
-    }
-    </style>';
-    echo $_SESSION['publish-error'];
-}
-?>
+                      echo $_SESSION['publish-error'] ?? '';
+                      ?>
                     </div>
                 </div>
             </div>
@@ -265,17 +225,10 @@ if (isset($_SESSION['publish-error'])) {
                         <option value="Культура">Культура</option>
                         <option value="Политика">Политика</option>
                     </select>
-                    <div class="invalid-feedback" id="category-err">
+                    <div class="invalid-feedback d-block">
                       <?php
-if (isset($_SESSION['category-error'])) {
-    echo '<style>
-    #category-err {
-      display: block;
-    }
-    </style>';
-    echo $_SESSION['category-error'];
-}
-?>
+                      echo $_SESSION['category-error'] ?? '';
+                      ?>
                     </div>
                 </div>
             </div>

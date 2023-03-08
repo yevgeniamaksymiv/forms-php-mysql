@@ -6,7 +6,11 @@ require_once 'app/DataBase.php';
 
 $db = new DataBase();
 
-$_SESSION['login-error'] = false;
+$_SESSION['login-valid-error'] = false;
+
+if (isset($_SESSION['user_id'])) {
+    unset($_SESSION['lf-error']);
+}
 
 if (isset($_POST['login-email']) && isset($_POST['password'])) {
     if (empty($_POST['login-email'])) {
@@ -29,13 +33,13 @@ if (isset($_POST['login-email']) && isset($_POST['password'])) {
         header("Location: http://$host/$uri/$extra");
         exit;
     } else {
-        $_SESSION['login-error'] = true;
+        $_SESSION['login-valid-error'] = true;
     }
 
 }
 
-if ($_SESSION['login-error']) {
-    $_SESSION['lf-error'] = 'You are not an authorised user';
+if ($_SESSION['login-valid-error']) {
+    $_SESSION['lf-error'] = 'Wrong email / login or password';
 }
 
 
