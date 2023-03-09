@@ -113,6 +113,10 @@ function validateForm($db): bool
         }
     }
 
+    if (isset($_POST['is_publish'])) {
+        $_SESSION['is_publish'] = $_POST['is_publish'];
+    }
+
     if (!isset($_POST['publish_in_index'])) {
         $_SESSION['publish-error'] = 'Check Yes or No';
     }
@@ -142,7 +146,8 @@ if (isset($_POST['edit'])) {
         $contentNew = trim($_SESSION['content']);
         $viewsNew = (int)trim($_SESSION['views']);
         $dateNew = trim($_SESSION['date']);
-        $is_publishNew = trim($_POST['publish_in_index']);
+        $is_publishNew = trim($_SESSION['is_publish']);
+        $is_publish_on_mainNew = trim($_POST['publish_in_index']);
         $categoryNew = trim($_SESSION['category']);
         $user_id = (int)$_SESSION['user_id'];
 
@@ -153,8 +158,8 @@ if (isset($_POST['edit'])) {
             `post_content` = '$contentNew', 
             `views_count` = '$viewsNew',
             `publish_date` = '$dateNew',
-            `is_published` = null,
-            `is_published_on_main` = '$is_publishNew',
+            `is_published` = '$is_publishNew',
+            `is_published_on_main` = '$is_publish_on_mainNew',
             `post_category` = '$categoryNew'
             WHERE `id` = '$postIdEdit'
            ");
@@ -168,6 +173,7 @@ if (isset($_POST['edit'])) {
             $_SESSION['content'],
             $_SESSION['views'],
             $_SESSION['date'],
+            $_SESSION['is_publish'],
             $_POST['publish_in_index'],
             $_POST['category']
         );
