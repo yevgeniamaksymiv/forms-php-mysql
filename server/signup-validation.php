@@ -21,7 +21,8 @@ if (isset($_POST['email'])) {
         $_SESSION['error'] = true;
     }
     if (checkValidEmail($_POST['email'])) {
-        $dbEmail = $db->query("SELECT `email` FROM `users` WHERE `email` = '".$_POST['email']."'");
+        $userEmail = $_POST['email'];
+        $dbEmail = $db->query("SELECT `email` FROM `users` WHERE `email` = '$userEmail'");
         if (empty($dbEmail)) {
             $_SESSION['email'] = $_POST['email'];
             $_SESSION['email-error'] = '';
@@ -47,7 +48,8 @@ if (isset($_POST['login'])) {
         $_SESSION['error'] = true;
     }
     if (checkValidLogin($_POST['login'])) {
-        $dbLogin = $db->query("SELECT `login` FROM `users` WHERE `login` = '".$_POST['login']."'");
+        $userLogin = $_POST['login'];
+        $dbLogin = $db->query("SELECT `login` FROM `users` WHERE `login` = '$userLogin'");
         if (empty($dbLogin)) {
             $_SESSION['login'] = $_POST['login'];
             $_SESSION['login-error'] = '';

@@ -20,10 +20,12 @@ if (isset($_POST['login-email']) && isset($_POST['password'])) {
             $_SESSION['lf-password-error'] = 'Password field cannot be empty';
         }
     }
+    $login = $_POST['login-email'];
+    $password = $_POST['password'];
     $dbUserId = $db->query("
         SELECT `id` FROM `users` 
-        WHERE (`email` = '" . $_POST['login-email'] . "' AND `password` = '" . $_POST['password'] . "')
-        OR (`login` = '" . $_POST['login-email'] . "' AND `password` = '" . $_POST['password'] . "')
+        WHERE (`email` = '$login' AND `password` = '$password')
+        OR (`login` = '$login' AND `password` = '$password')
         ");
     if (!empty($dbUserId)) {
         $_SESSION['user_id'] = $dbUserId[0]['id'];
@@ -39,7 +41,7 @@ if (isset($_POST['login-email']) && isset($_POST['password'])) {
 }
 
 if ($_SESSION['login-valid-error']) {
-    $_SESSION['lf-error'] = 'Wrong email / login or password';
+    $_SESSION['lf-error'] = 'Wrong email/login or password';
 }
 
 

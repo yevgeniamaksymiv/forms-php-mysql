@@ -104,31 +104,6 @@ if (isset($_SESSION['content'])) {
             </div>
 
             <div class="form-group row">
-                <label for="email" class="col-md-2 col-form-label">Email  автора для связи</label>
-                <div class="col-md-10">
-                    <input
-                            type="email"
-                            class="form-control"
-                            id="email"
-                            name="email"
-                            value="<?php
-if (isset($_SESSION['email-error'])) {
-    echo '';
-}
-if (isset($_SESSION['email'])) {
-    echo $_SESSION['email'];
-}
-?>
-">
-                    <div class="invalid-feedback d-block">
-                      <?php
-                      echo $_SESSION['email-error'] ?? '';
-                      ?>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group row">
                 <label for="views" class="col-md-2 col-form-label">Кол-во просмотров</label>
                 <div class="col-md-10">
                     <input

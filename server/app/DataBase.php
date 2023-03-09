@@ -12,7 +12,7 @@ class DataBase
 
     private function connect()
     {
-        $config = require_once 'config.php';
+        $config = require_once 'db-config.php';
         $dsn = "mysql:host={$config['host']};dbname={$config['db_name']};charset={$config['charset']}";
         $this->link = new PDO($dsn, $config['username'], $config['password']);
 
